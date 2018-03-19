@@ -1,0 +1,32 @@
+<mat-card [ngStyle]="{'padding':'0px'}">
+    <mat-card-header [ngStyle]="{'background-color':'#00a65a'}">
+        <mat-card-title [ngStyle]="{'padding-top':'20px','font-size':'24px','color':'white'}">CADASTRO</mat-card-title>
+    </mat-card-header>
+    <mat-card-content [ngStyle]="{'padding-left':'40px','padding-top':'40px'}">
+
+        <form #Form="ngForm">
+            <mat-form-field>
+                <input matInput [(ngModel)]="usuario.nome" name="nome" placeholder="Nome Completo">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput [(ngModel)]="usuario.cpf" name="cpf" placeholder="Cpf">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker"[(ngModel)]="usuario.dataNascimento" name="dataNascimento" placeholder="Data de Nascimento">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+
+            <mat-form-field>
+                <input matInput [(ngModel)]="usuario.email" name="email" placeholder="Email" type="email">
+            </mat-form-field>
+            <div style="padding-bottom:20px;">
+            <button mat-raised-button color="primary" (click)="salvarDados()">SALVAR</button>
+            <button mat-raised-button color="warn" (click)="Form.reset()">LIMPAR</button>
+        </div>
+        </form>
+    </mat-card-content>
+</mat-card>
