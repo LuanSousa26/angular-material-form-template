@@ -14,7 +14,7 @@ export class CadastroComponent {
 
     salvarDados()
     {
-      
+      console.log(`Nome: ${this.usuario.nome} CPF: ${this.usuario.cpf} Data de Nascimento: ${this.usuario.dataNascimento}  E-mail: ${this.usuario.email}`)
     }
 
     
