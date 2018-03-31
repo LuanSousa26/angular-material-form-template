@@ -11,6 +11,8 @@ import {
 import {
   EnderecoModel
 } from '../models/enderecoModel';
+import { Observable } from 'rxjs/Observable';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-cadastro',
@@ -25,12 +27,17 @@ export class CadastroComponent {
   str4 = 'bf4ef3a42df0';
   token = '90oop033c11120339www211';
   retorno: any;
+  postRetorno: any;
   constructor(private cadastroService: CadastroService) {
       this.usuario.endereco = new EnderecoModel();
   }
 
   salvarDados() {
-      console.log(`Nome: ${this.usuario.nome} CPF: ${this.usuario.cpf} Data de Nascimento: ${this.usuario.dataNascimento}  E-mail: ${this.usuario.email}`)
+    this.cadastroService.salvarUsuario(this.usuario).subscribe(resposta => {
+      this.postRetorno = resposta;
+      console.log(resposta);
+    });
+    alert('Usuario Salvo!');
   }
 
   verificarCep() {
@@ -65,6 +72,5 @@ export class CadastroComponent {
           });
       }
   }
-
 
 }
