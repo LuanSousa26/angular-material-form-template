@@ -4,30 +4,58 @@
     </mat-card-header>
     <mat-card-content [ngStyle]="{'padding-left':'40px','padding-top':'40px'}">
 
-        <form #Form="ngForm">
-            <mat-form-field>
+        <form #Form="ngForm" class="matForm">
+            <mat-form-field  class="matInput">
                 <input matInput [(ngModel)]="usuario.nome" #nome="ngModel" name="nome" placeholder="Nome Completo" required>
                 <mat-error *ngIf="nome.invalid">O nome é Inválido</mat-error>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-                <input matInput [(ngModel)]="usuario.cpf" #cpf="ngModel" name="cpf" placeholder="Cpf" required>
+            <mat-form-field class="matInput">
+                <input matInput [(ngModel)]="usuario.cpf"  maxlength="14" #cpf="ngModel" name="cpf" (focusout)="verificarCpf()" placeholder="Cpf" pattern="[0-9]{11}|[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" required>
                 <mat-error *ngIf="cpf.invalid">O CPF é Inválido</mat-error>
             </mat-form-field>
 
-            <mat-form-field>
-                <input matInput [matDatepicker]="picker"[(ngModel)]="usuario.dataNascimento" name="dataNascimento" placeholder="Data de Nascimento">
+            <mat-form-field class="matInput">
+                <input matInput [matDatepicker]="picker" [(ngModel)]="usuario.dataNascimento" name="dataNascimento" placeholder="Data de Nascimento">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
 
-            <mat-form-field>
+            <mat-form-field class="matInput">
                 <input matInput [(ngModel)]="usuario.email" #email="ngModel" name="email" placeholder="Email" type="email" required>
                 <mat-error *ngIf="email.invalid">O E-mail é Inválido</mat-error>
             </mat-form-field>
+
+            <mat-form-field class="matInput">
+                <input matInput [(ngModel)]="usuario.endereco.cep" #cep="ngModel" name="cep" (focusout)="verificarCep()" placeholder="CEP" maxlength="9" pattern="[0-9]{8}|[0-9]{5}-[0-9]{3}" required>
+                 <mat-error *ngIf="cep.invalid">O CEP é inválido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="matInput">
+                <input matInput [(ngModel)]="usuario.endereco.logradouro" placeholder="Logradouro" name="logradouro" disabled>
+            </mat-form-field>
+
+            <mat-form-field class="matInput">
+                <input matInput [(ngModel)]="usuario.endereco.bairro" placeholder="Bairro" name="bairro" disabled>
+            </mat-form-field>
+
+            <mat-form-field class="matInput">
+                <input matInput [(ngModel)]="usuario.endereco.localidade" placeholder="Cidade" name="localidade" disabled>
+            </mat-form-field>
+
+            <mat-form-field class="matInput">
+                <input matInput [(ngModel)]="usuario.endereco.complemento" placeholder="Complemento" name="complemento">
+            </mat-form-field>
+
+            <mat-form-field class="matInput">
+                <input matInput [(ngModel)]="usuario.endereco.uf" placeholder="Estado" name="uf" disabled>
+            </mat-form-field>
+
+            
+
             <div style="padding-bottom:20px;padding-top:20px;">
-            <button mat-raised-button color="primary" (click)="salvarDados()">SALVAR</button>
+            <button [disabled]="Form.invalid" mat-raised-button color="primary" (click)="salvarDados()">SALVAR</button>
             <button mat-raised-button color="warn" (click)="Form.reset()">LIMPAR</button>
         </div>
         </form>

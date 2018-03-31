@@ -8,6 +8,7 @@ import { AppCompartilhadoModule} from './app-compartilhado/app-compartilhado.mod
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './layout/navbar/menu.component';
+import { CadastroService } from './cadastro/cadastro.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { MenuComponent } from './layout/navbar/menu.component';
     AppRoutingModule,
     AppCompartilhadoModule
   ],
-  providers: [],
+  providers: [CadastroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

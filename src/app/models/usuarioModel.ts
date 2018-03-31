@@ -1,9 +1,11 @@
+import { EnderecoModel } from './enderecoModel';
 export class usuarioModel {
 
     nome?: string;
-    cpf?: number;
+    cpf?: string;
     dataNascimento?: Date;
     email?: string;
+    endereco?: EnderecoModel;
     constructor() {
 
     }
