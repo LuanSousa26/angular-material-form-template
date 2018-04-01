@@ -62,7 +62,7 @@ export class PesquisaService {
     "id":6,
     "nome":"Everton",
     "idade":32,
-    "profissao":"Vendedor de Trufas"
+    "profissao":"Vendedor de Trufa"
 }
 ]
 }
