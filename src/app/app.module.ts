@@ -9,6 +9,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './layout/navbar/menu.component';
 import { CadastroService } from './cadastro/cadastro.service';
+import { PesquisaComponent } from './pesquisa/pesquisa.component';
+import { PesquisaService } from './pesquisa/pesquisa.service';
 
 
 @NgModule({
@@ -16,14 +18,16 @@ import { CadastroService } from './cadastro/cadastro.service';
     AppComponent,
     CadastroComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    PesquisaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AppCompartilhadoModule
   ],
-  providers: [CadastroService],
+  providers: [CadastroService,
+    PesquisaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
