@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { PesquisaService } from './pesquisa.service';
-
+//teste git
 @Component({
   selector: 'app-pesquisa',
   templateUrl: './pesquisa.component.html',
@@ -29,7 +29,6 @@ export class PesquisaComponent {
     this.dataSource.filter = filterValue;
   }
 }
-
 export interface Elementos {
   id?: number;
   nome?: string;
