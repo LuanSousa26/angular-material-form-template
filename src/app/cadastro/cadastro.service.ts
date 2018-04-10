@@ -23,7 +23,7 @@ export class CadastroService {
   constructor(private http: HttpClient) {}
 
   private urlCep = 'https://viacep.com.br/ws';
-  private urlCpf = 'http://geradorapp.com/api/v1/cpf/validate'
+  private urlCpf = 'http://geradorapp.com/api/v1/cpf/validate';
   private urlPost = 'http://demo4677424.mockable.io/usuarios/';
 
   salvarUsuario(usuario: usuarioModel): Observable < EntityResponseType > {
